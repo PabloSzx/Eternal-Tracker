@@ -16,17 +16,22 @@
 
 .text {
   color: white;
-  font-size: 1vh;
+  font-size: 0.7em;
   cursor: pointer;
   display: block;
-  margin-top: 0.2vh;
+  margin-top: 1.5px;
+  transition: filter 0.2s;
+}
+
+.text:hover {
+  filter: brightness(60%);
+  /*font-size: 0.75em;*/
 }
 
 .card {
   position: absolute;
-  left: 2vh;
-  /*width: 3vh;*/
-  height: 3.5vh;
+  left: 15px;
+  width: 18px;
   transition: filter 0.2s;
   opacity: 1;
   cursor: pointer;
@@ -37,13 +42,10 @@
 }
 
 .card:hover {
-  /*position: absolute;*/
-  /*transition: width 0.3s;*/
-  /*opacity: 1;*/
+  width: 20px;
+
   filter: brightness(150%);
 
-  /*z-index: 2;*/
-  /*width: 24vw;*/
 }
 
 .li {
@@ -51,8 +53,17 @@
   white-space: nowrap;
 }
 
+
+.resetButton {
+  position: relative;
+  right: -160px;
+  bottom: 10px;
+  padding: 2px;
+  font-size: 0.6em;
+}
+
 .total {
-  font-size: 2vh;
+  font-size: 1em;
   color: white;
   position: absolute;
   right: 0;
@@ -61,21 +72,14 @@
 }
 
 .probabilidad {
-  /*position: absolute;*/
-  /*left: 0;*/
-  /*left: 35%;*/
-  /*right: 0;*/
-  /*color: white;*/
-  /*font-size: 1vh;*/
-  /*z-index: 10;*/
   color: white;
-  font-size: 1.4vh;
+  font-size: 0.7em;
   cursor: default;
 }
 
 .list {
   position: relative;
-  top: 1vh;
+  top: 10px;
   left: 0;
 }
 
@@ -84,10 +88,6 @@
 }
 
 .number {
-  /*width: 20vw;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);*/
 }
 
 .fire {

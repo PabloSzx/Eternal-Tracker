@@ -58,7 +58,11 @@ app.on('ready', async () => {
     x: width,
     y: height / 2,
     backgroundColor: '#232C39',
-    resizable: false
+    resizable: false,
+    fullscreenable: false,
+    fullscreen: false,
+    maximizable: false,
+    minimizable: false
   });
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);

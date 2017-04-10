@@ -107,7 +107,7 @@ class CardList extends Component {
               <li className={styles.li}>
                 {/* eslint-disable jsx-a11y/no-static-element-interactions */}
                 {
-                  (this.props.counting[nombre.replace('.png', '')] > 0)
+                  ((this.props.counting[nombre.replace('.png', '')] > 0) || (_.includes(_.keys(this.props.counting), 'Excavate') && (this.props.counting[nombre.replace('.png', '')] >= 0)))
                   ?
                     <div>
                       {/* <img
@@ -121,7 +121,11 @@ class CardList extends Component {
                           src={`http://www.numotgaming.com/cards/images/cards/${nombre.replace(' ','%20')}`}
                           // src={`./utils/cards/${color}/${type}/${nombre}`}
                           alt={nombre.replace('.png', '')}
-                          onClick={() => this.cardDrawn(nombre.replace('.png', ''), true)}
+                          onClick={() => {
+                            if ((this.props.counting[nombre.replace('.png', '')] > 0) || !(_.includes(_.keys(this.props.counting), 'Excavate'))) {
+                              this.cardDrawn(nombre.replace('.png', ''), true)
+                            }
+                          }}
                         />
                         <div
                           onClick={() => this.cardDrawn(nombre.replace('.png', ''), false)}
@@ -184,14 +188,7 @@ class CardList extends Component {
           ?
           <Button
             bsStyle="warning"
-            // className="resetButton"
-            style={{
-              position: 'absolute',
-              right: '-45vw',
-              bottom: '1vh',
-              padding: '2px',
-              fontSize: '0.6em'
-            }}
+            className={styles.resetButton}
             onClick={()=>{
               this.props.snapshotFirebase(this.props.user);
             }}>
