@@ -38,7 +38,7 @@ class Login extends Component {
   }
 
   cleanErrorMessage(string) {
-    this.asd = 'asd';
+    this.asd = 'asddd';
     let str = string.replace(' or the user does not have a password', '');
     str = str.replace('email address', 'username');
     return str;
