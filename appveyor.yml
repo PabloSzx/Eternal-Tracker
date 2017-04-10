@@ -1,52 +1,22 @@
-os: unstable
+version: 0.4.{build}
 
-environment:
-  matrix:
-    - nodejs_version: 7
-    - nodejs_version: 6
+platform:
+  - x64
 
 cache:
-  - node_modules -> package.json
-  - app/node_modules -> app/package.json
+  - node_modules
+  - '%APPDATA%\npm-cache'
+  - '%USERPROFILE%\.electron'
 
-# Enable when https://github.com/yarnpkg/yarn/issues/1233 and
-# https://github.com/yarnpkg/yarn/issues/1059 are resolved and disable npm cache
-#
-# cache:
-#   - "%LOCALAPPDATA%/Yarn"
-
-matrix:
-  fast_finish: true
-
-build: off
-
-version: '{build}'
-
-shallow_clone: true
-
-clone_depth: 1
+init:
+  - git config --global core.autocrlf input
 
 install:
-  - ps: Install-Product node $env:nodejs_version
-  - set CI=true
-  - npm install -g npm@latest
-  - set PATH=%APPDATA%\npm;%PATH%
-  - npm install
+  - ps: Install-Product node 7 x64
+  - yarn install
+  - yarn add electron-builder@next --dev # force install next version to test electron-builder
 
-# Enable when https://github.com/yarnpkg/yarn/issues/1233 and
-# https://github.com/yarnpkg/yarn/issues/1059 are resolved and disable npm cache
-#
-# install:
-#   - ps: Install-Product node $env:nodejs_version
-#   - set CI=true
-#   - choco install yarn
-#   - refreshenv
-#   - yarn
+build_script:
+  - yarn run dist
 
-test_script:
-  - node --version
-  - npm run lint
-  - npm run test
-  - npm run build
-  - npm run test-e2e
-  - npm run package
+test: off

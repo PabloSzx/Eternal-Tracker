@@ -28,7 +28,6 @@ build/Release
 node_modules
 app/node_modules
 app/utils/cards
-
 # OSX
 .DS_Store
 

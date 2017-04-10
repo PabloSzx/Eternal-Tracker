@@ -3,6 +3,8 @@
 import { app, BrowserWindow } from 'electron';
 import MenuBuilder from './menu';
 
+const electron = require('electron');
+
 let mainWindow = null;
 
 if (process.env.NODE_ENV === 'production') {
@@ -45,14 +47,16 @@ app.on('ready', async () => {
     await installExtensions();
   }
 
+  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize;
+
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 728,
-    // transparent: true,
-    alwaysOnTop: false,
-    // frame: false,
-    // toolbar: false
+    width: 300,
+    height: height - (height * 0.1),
+    title: 'Eternal Tracker',
+    x: width,
+    y: height / 2,
+    backgroundColor: '#232C39'
   });
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);

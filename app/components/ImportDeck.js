@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Textarea from 'better-react-textarea-autosize';// import _ from 'lodash';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import { Button } from 'react-bootstrap';
 import { addDeck, snapshotFirebase } from '../actions/deck';
 
 const firebase = require('firebase');
@@ -13,10 +14,12 @@ class ImportDeck extends Component {
     this.state = {
       description: '',
       error: false,
+      button: 'Import Deck',
+      import: false
     };
   }
   componentWillMount() {
-    this.props.snapshotFirebase();
+    this.props.snapshotFirebase(this.props.user);
   }
   handleChange(event) {
     this.setState({
@@ -24,17 +27,20 @@ class ImportDeck extends Component {
     });
   }
   saveDeck() {
-    this.a = 'asd';
+    this.a = 'asdss';
     const array = this.state.description.split('\n');
     const clean = _.map(array, (value) => {
       const val = value.substring(value.indexOf(' '), value.indexOf('(Set')).trim();
       return val;
     });
-    firebase.database().ref().update({
+    firebase.database().ref(this.props.user).update({
       cleanDeck: clean,
       fullDeck: array
     });
     this.props.addDeck(clean);
+    this.setState({
+      description: ''
+    });
   }
 
   logState() {
@@ -44,17 +50,39 @@ class ImportDeck extends Component {
   render() {
     return (
       <div>
-        <Textarea
+        {
+          this.state.import
+          ?
+            <Textarea
+              className="textArea"
+              value={this.state.description}
+              onChange={this.handleChange.bind(this)}
+              onClick={(e) => this.logState(e)}
+            />
+          :
+            <div />
+        }
+        {/* <Textarea
           style={{ backgroundColor: 'black', color: 'white' }}
           value={this.state.description}
           onChange={this.handleChange.bind(this)}
           onClick={(e) => this.logState(e)}
-        />
-        <button
-          onClick={() => this.saveDeck()}
+        /> */}
+        <Button
+          className="saveButton"
+          bsStyle="primary"
+          onClick={() => {
+            if (this.state.import) {
+              this.saveDeck();
+              this.setState({ import: false, button: 'Import Deck' });
+            } else {
+              this.setState({ import: true, button: 'Save Deck' });
+            }
+          }
+          }
         >
-          Guardar Deck!!
-        </button>
+          {this.state.button}
+        </Button>
       </div>
     );
   }
@@ -63,17 +91,20 @@ class ImportDeck extends Component {
 function mapStateToProps(state) {
   return {
     counter: state.counter,
-    deck: state.deck
+    deck: state.deck,
+    user: state.auth.user
   };
 }
 
 ImportDeck.defaultProps = {
   addDeck: React.PropTypes.func,
-  snapshotFirebase: React.PropTypes.func
+  snapshotFirebase: React.PropTypes.func,
+  user: ''
 };
 ImportDeck.propTypes = {
   addDeck: React.PropTypes.func,
-  snapshotFirebase: React.PropTypes.func
+  snapshotFirebase: React.PropTypes.func,
+  user: React.PropTypes.string
 };
 
 

@@ -1,3 +1,9 @@
 export const ADD_DECK = 'ADD_DECK';
 export const EDIT_DECK = 'EDIT_DECK';
 export const UPDATE_ACTUAL_DECK = 'UPDATE_ACTUAL_DECK';
+export const SET_TOTAL_CARDS = 'SET_TOTAL_CARDS';
+export const SET_COUNTING = 'SET_COUNTING';
+export const SET_AUTH_STATE = 'SET_AUTH_STATE';
+export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const CLEAR_LOGIN_ERROR = 'CLEAR_LOGIN_ERROR';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';

@@ -1,4 +1,17 @@
 {
+  "neutral": {
+    "unit":
+    ["Combrei Stranger.png","Elysian Stranger.png","Feln Stranger.png","Forsworn Stranger.png","Rakano Stranger.png","Stonescar Stranger.png"]
+    ,
+    "attachment":
+    ["Spiked Helm.png","Worn Shield.png"]
+    ,
+    "power":
+    ["Diplomatic Seal.png"]
+    ,
+    "spell":
+    ["Alchemical Blast.png","Daze.png","Seek Power.png"]
+  },
   "fire": {
     "unit":
     ["Arcanum Monitor.png","Bait.png","Bandit Queen.png","Battleblur Centaur.png","Bladekin Apprentice.png","Blazing Renegade.png","Brazen Daredevil.png","Calderan Gunsmith.png","Censari Brigand.png","Centaur Outrider.png","Centaur Raidleader.png","Champion of Chaos.png","Champion of Glory.png","Crowd Favorite.png","Crownwatch Deserter.png","Dusthoof Brawler.png","Fearless Nomad.png","Ferocious Stranger.png","Fevered Scout.png","Field Captain.png","Forge Wolf.png","Frontier Jito.png","Frontline Cyclops.png","Furnace Mage.png","General Izalio.png","Granite Acolyte.png","Grenadin Drone.png","Guerrilla Fighter.png","Hair-Trigger Stranger.png","Icaria, the Liberator.png","Ijin, Imperial Armorer.png","Infernal Tyrant.png","Infernus.png","Jekk, the Bounty Hunter.png","Kaleb, Uncrowned Prince.png","Lavablood Goliath.png","Longhorn Sergeant.png","Navani, Warsinger.png","Nictotraxian.png","Obsidian Golem.png","Oni Quartermaster.png","Oni Ronin.png","Oni Striker.png","Outlands Sniper.png","Praxis Outlaw.png","Pyre Adept.png","Pyroknight.png","Rakano Artisan.png","Rakano Flagbearer.png","Rakano Outlaw.png","Rebel Illuminator.png","Rebel Sharpshooter.png","Recogulator.png","Renegade Valkyrie.png","Ruthless Stranger.png","Scraptank.png","Shogun of the Wastes.png","Soulfire Drake.png","Statuary Maiden.png","Steelbound Dragon.png","Stonescar Leviathan.png","Ticking Grenadin.png","Voprex, the Great Ruin.png","Warband Chieftain.png","Worldpyre Phoenix.png"]
