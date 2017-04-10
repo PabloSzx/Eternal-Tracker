@@ -3,13 +3,13 @@ import { SET_AUTH_STATE, LOGIN_ERROR, CLEAR_LOGIN_ERROR, LOGIN_SUCCESS } from '.
 const INITIAL_STATE = {
   authenticated: false,
   loginError: '',
-  user: '86j3uFda1hhMcgsK9cDDG0JQsg62'
+  user: ''
 };
 
 export default function auth(state = INITIAL_STATE, action) {
   switch (action.type) {
     case SET_AUTH_STATE:
-      return { ...state, authenticated: action.payload };
+      return { ...state, authenticated: action.payload, user: action.uid };
     case LOGIN_ERROR:
       return { ...state, loginError: action.payload };
     case CLEAR_LOGIN_ERROR:

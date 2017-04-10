@@ -60,7 +60,7 @@ class Login extends Component {
               onChange={(e) => this.handleUsernameChange(e)}
             />
             <FormControl.Feedback />
-            <HelpBlock>If this is your first time, this will work for register too.</HelpBlock>
+            <HelpBlock>If this is your first time, this will work to register too.</HelpBlock>
             <ControlLabel className="white">Password</ControlLabel>
             <FormControl
               type="password"

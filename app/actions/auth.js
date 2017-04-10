@@ -6,12 +6,14 @@
 import Firebase from 'firebase';
 import { SET_AUTH_STATE, LOGIN_ERROR, CLEAR_LOGIN_ERROR, LOGIN_SUCCESS } from './types';
 
-export function setAuthState(bool) {
+export function setAuthState(bool, uid) {
   return {
     type: SET_AUTH_STATE,
-    payload: bool
+    payload: bool,
+    uid
   };
 }
+
 
 export function login(username, password) {
   return dispatch => {

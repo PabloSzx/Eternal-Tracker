@@ -14,9 +14,9 @@ class Home extends Component {
   componentWillMount() {
     Firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.props.setAuthState(true);
+        this.props.setAuthState(true, user.uid);
       } else {
-        this.props.setAuthState(false);
+        this.props.setAuthState(false, '');
       }
     });
   }
@@ -54,7 +54,8 @@ class Home extends Component {
 
 function mapStateToProps(state) {
   return {
-    auth: state.auth.authenticated
+    auth: state.auth.authenticated,
+    user: state.auth.user
   };
 }
 

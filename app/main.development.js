@@ -52,11 +52,13 @@ app.on('ready', async () => {
   mainWindow = new BrowserWindow({
     show: false,
     width: 300,
-    height: height - (height * 0.1),
+    height,
     title: 'Eternal Tracker',
+    alwaysOnTop: true,
     x: width,
     y: height / 2,
-    backgroundColor: '#232C39'
+    backgroundColor: '#232C39',
+    resizable: false
   });
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);
